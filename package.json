@@ -1,0 +1,25 @@
+{
+  "name": "HackBot",
+  "version": "1.0.0",
+  "description": "Source code for the Mason Hack Club discord bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EthanRudy1/HackBot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EthanRudy1/HackBot/issues"
+  },
+  "homepage": "https://github.com/EthanRudy1/HackBot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "dotenv": "^9.0.2",
+    "nodemon": "^2.0.7"
+  }
+}
