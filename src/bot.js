@@ -67,15 +67,43 @@ client.on('ready', () => {
         }
     })
 
-    //UPDATE//
-    command(client, 'update', message => {
+    //UPDATE_PLAYING//
+    command(client, 'update_playing', message => {
         const { member } = message
         if (member.hasPermission('ADMINISTRATOR')){
-            const args = message.content.slice(7).trim()
+            const args = message.content.slice(15).trim()
             client.user.setPresence({
                 activity: {
                     name: args,
-                    type: 0
+                    type: "STREAMING"
+                }
+            })
+        }
+    })
+
+    //UPDATE_WATCHING//
+    command(client, 'update_watching', message => {
+        const { member } = message
+        if (member.hasPermission('ADMINISTRATOR')){
+            const args = message.content.slice(16).trim()
+            client.user.setPresence({
+                activity: {
+                    name: args,
+                    type: "WATCHING"
+                }
+            })
+        }
+    })
+
+    //UPDATE_LISTENING//
+    command(client, 'update_listening', message => {
+        const { member } = message
+        if (member.hasPermission('ADMINISTRATOR')){
+            const args = message.content.slice(17).trim()
+            client.user.setPresence({
+                activity: {
+                    name: args,
+                    type: "LISTENING"
                 }
             })
         }
@@ -91,6 +119,15 @@ client.on('ready', () => {
             .setDescription("Hello! I'm Hack Bot")
             .setThumbnail('https://twitter.com/masonhackclub/photo')
             .setTimestamp()
+            .addFields(
+                { name: '-help', value: 'Basic command to help with basic commands'},
+                { name: '-clear __', value: 'Clears specified amount of messages (REQUIRES ADMIN)', inline: true},
+                { name: '-kick @__', value: 'Kicks the specified user (REQUIRES ADMIN)', inline: true},
+                { name: '-ban @__', value: 'Bans the specified user (REQUIRES ADMIN)', inline: true},
+                { name: '-update_playing __', value: 'Updates the status of HackBot (REQUIRES ADMIN)'},
+                { name: '-update_watching __', value: 'Updates the status of HackBot (REQUIRES ADMIN)'},
+                { name: '-update_listening __', value: 'Updates the status of HackBot (REQUIRES ADMIN)'},
+            )
             .setFooter('Thanks for using me!');
         message.channel.send(emb);
     })
