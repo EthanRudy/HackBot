@@ -6,12 +6,13 @@ const config = require('./prefix.json')
 
 const command = require('./cForm.js');
 const swear = require('./swears.js');
+const roleClaim = require('./roles.js')
 
 client.on('ready', () => {
     console.log('HackBot is online');
     
     swear(client);
-
+    roleClaim(client);
     //KICK//
     command(client, 'kick', message => {
         const { member, mentions } = message
@@ -78,6 +79,20 @@ client.on('ready', () => {
                 }
             })
         }
+    })
+
+    //HELP//
+    command(client, 'help',  message => {
+        const emb = new Discord.MessageEmbed()
+            .setColor('#d76b6b')
+            .setTitle('-help')
+            .setURL('https://github.com/EthanRudy1/HackBot')
+            .setAuthor('HackBot')
+            .setDescription("Hello! I'm Hack Bot")
+            .setThumbnail('https://twitter.com/masonhackclub/photo')
+            .setTimestamp()
+            .setFooter('Thanks for using me!');
+        message.channel.send(emb);
     })
 })
 
